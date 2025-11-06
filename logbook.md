@@ -7,3 +7,5 @@
 | 29.10.2025 | 0.5 | Cisco Course Study  | Module 1 started |
 | 1.11.2025 | 2 | Cisco Course Study  | Module 1 continue and quiz 1, module 2 and quiz |
 | 3.11.2025 | 4.5 | Cisco Course Study  | Module 3 and quiz, module 4 and quiz, module 5 and quiz, Final exam |
+| 4.11.2025 | 1.5 |  Cybersecurity and Data Privacy Course second lesson   | Introduction to the Portswigger environment |
+| 5.11.2025 | 0.5 | PortSwigger and Burp suite  | PortSwigger account creation and getting to know its environment and Burp suite  |
