@@ -10,3 +10,4 @@
 | 4.11.2025 | 1.5 |  Cybersecurity and Data Privacy Course second lesson   | Introduction to the Portswigger environment |
 | 5.11.2025 | 0.5 | PortSwigger and Burp suite  | PortSwigger account creation and getting to know its environment and Burp suite  |
 | 9.11.2025 | 2 | PortSwigger Academy labs  | SQL injection theory reading and two labs solved  |
+| 10.11.2025 | 1.5 | PortSwigger Academy labs  | Authentication theory reading |
