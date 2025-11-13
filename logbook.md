@@ -13,3 +13,4 @@
 | 10.11.2025 | 1.5 | PortSwigger Academy labs  | Authentication theory reading |
 | 11.11.2025 | 4 | PortSwigger Academy labs. Cybersecurity and Data Privacy Course third lesson  | Two labs solved on Authentication. Access Control theory reading. Introduction to Penetration Testing and to the Booking System Project |
 | 12.11.2025 | 1.5 | PortSwigger Academy labs  | Two labs solved on Access Control. Writting of the solved labs report |
+| 13.11.2025 | 4 | Set up of pen-test lab  | Pen-test lab set up in Kali Linux (VM approach). Docker Engine and ZAP installation. Clean lab folder creation and download of compose file. Fast check |
