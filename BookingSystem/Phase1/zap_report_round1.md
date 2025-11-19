@@ -19,13 +19,13 @@ ZAP by [Checkmarx](https://checkmarx.com/).
 
 | Name | Risk Level | Number of Instances |
 | --- | --- | --- |
-| Path Traversal | High | 2 |
-| SQL Injection | High | 2 |
+| Path Traversal | High | 3 |
+| SQL Injection | High | 5 |
 | Absence of Anti-CSRF Tokens | Medium | 1 |
-| Content Security Policy (CSP) Header Not Set | Medium | 3 |
+| Content Security Policy (CSP) Header Not Set | Medium | 2 |
 | Format String Error | Medium | 1 |
-| Missing Anti-clickjacking Header | Medium | 3 |
-| X-Content-Type-Options Header Missing | Low | 6 |
+| Missing Anti-clickjacking Header | Medium | 2 |
+| X-Content-Type-Options Header Missing | Low | 5 |
 | User Agent Fuzzer | Informational | 12 |
 
 
@@ -62,12 +62,19 @@ Even if the web server properly restricts Path Traversal attempts in the URL pat
 
   * Method: `POST`
   * Parameter: `username`
+  * Attack: `\register`
+  * Evidence: ``
+  * Other Info: ``
+* URL: http://localhost:8000/register
+
+  * Method: `POST`
+  * Parameter: `username`
   * Attack: `register`
   * Evidence: ``
   * Other Info: ``
 
 
-Instances: 2
+Instances: 3
 
 ### Solution
 
@@ -135,9 +142,39 @@ SQL injection may be possible.
 The parameter value being modified was stripped from the HTML output for the purposes of the comparison.
 Data was returned for the original parameter.
 The vulnerability was detected by successfully restricting the data originally returned, by manipulating the parameter.`
+* URL: http://localhost:8000/register
+
+  * Method: `POST`
+  * Parameter: `username`
+  * Attack: `foo-bar@example.com OR 1=1 -- `
+  * Evidence: ``
+  * Other Info: `The page results were successfully manipulated using the boolean conditions [foo-bar@example.com AND 1=1 -- ] and [foo-bar@example.com OR 1=1 -- ]
+The parameter value being modified was stripped from the HTML output for the purposes of the comparison.
+Data was NOT returned for the original parameter.
+The vulnerability was detected by successfully retrieving more data than originally returned, by manipulating the parameter.`
+* URL: http://localhost:8000/register
+
+  * Method: `POST`
+  * Parameter: `username`
+  * Attack: `foo-bar@example.com' AND '1'='1' -- `
+  * Evidence: ``
+  * Other Info: `The page results were successfully manipulated using the boolean conditions [foo-bar@example.com' AND '1'='1' -- ] and [foo-bar@example.com' AND '1'='2' -- ]
+The parameter value being modified was stripped from the HTML output for the purposes of the comparison.
+Data was returned for the original parameter.
+The vulnerability was detected by successfully restricting the data originally returned, by manipulating the parameter.`
+* URL: http://localhost:8000/register
+
+  * Method: `POST`
+  * Parameter: `username`
+  * Attack: `foo-bar@example.com' OR '1'='1' -- `
+  * Evidence: ``
+  * Other Info: `The page results were successfully manipulated using the boolean conditions [foo-bar@example.com' AND '1'='1' -- ] and [foo-bar@example.com' OR '1'='1' -- ]
+The parameter value being modified was stripped from the HTML output for the purposes of the comparison.
+Data was NOT returned for the original parameter.
+The vulnerability was detected by successfully retrieving more data than originally returned, by manipulating the parameter.`
 
 
-Instances: 2
+Instances: 5
 
 ### Solution
 
@@ -244,13 +281,6 @@ Check the HTTP Referer header to see if the request originated from an expected 
 
 Content Security Policy (CSP) is an added layer of security that helps to detect and mitigate certain types of attacks, including Cross Site Scripting (XSS) and data injection attacks. These attacks are used for everything from data theft to site defacement or distribution of malware. CSP provides a set of standard HTTP headers that allow website owners to declare approved sources of content that browsers should be allowed to load on that page — covered types are JavaScript, CSS, HTML frames, fonts, images and embeddable objects such as Java applets, ActiveX, audio and video files.
 
-* URL: http://localhost:8000
-
-  * Method: `GET`
-  * Parameter: ``
-  * Attack: ``
-  * Evidence: ``
-  * Other Info: ``
 * URL: http://localhost:8000/
 
   * Method: `GET`
@@ -267,7 +297,7 @@ Content Security Policy (CSP) is an added layer of security that helps to detect
   * Other Info: ``
 
 
-Instances: 3
+Instances: 2
 
 ### Solution
 
@@ -341,13 +371,6 @@ Rewrite the background program using proper deletion of bad character strings. T
 
 The response does not protect against 'ClickJacking' attacks. It should include either Content-Security-Policy with 'frame-ancestors' directive or X-Frame-Options.
 
-* URL: http://localhost:8000
-
-  * Method: `GET`
-  * Parameter: `x-frame-options`
-  * Attack: ``
-  * Evidence: ``
-  * Other Info: ``
 * URL: http://localhost:8000/
 
   * Method: `GET`
@@ -364,7 +387,7 @@ The response does not protect against 'ClickJacking' attacks. It should include 
   * Other Info: ``
 
 
-Instances: 3
+Instances: 2
 
 ### Solution
 
@@ -394,14 +417,6 @@ If you expect the page to be framed only by pages on your server (e.g. it's part
 
 The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.
 
-* URL: http://localhost:8000
-
-  * Method: `GET`
-  * Parameter: `x-content-type-options`
-  * Attack: ``
-  * Evidence: ``
-  * Other Info: `This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
-At "High" threshold this scan rule will not alert on client or server error responses.`
 * URL: http://localhost:8000/
 
   * Method: `GET`
@@ -444,7 +459,7 @@ At "High" threshold this scan rule will not alert on client or server error resp
 At "High" threshold this scan rule will not alert on client or server error responses.`
 
 
-Instances: 6
+Instances: 5
 
 ### Solution
 
