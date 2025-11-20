@@ -1,31 +1,35 @@
 # 1️⃣ Introduction
 
 **Tester(s):**  
-- Name: José Flores Vargas 
+- Name: Jose Flores Vargas 
 
 **Purpose:**  
-- Describe the purpose of this test (e.g., identify vulnerabilities in registration and authentication flows).
+- The purpose of this test was to find anomalies and vulnerabilities, as many as possible, in the user registration functionality of the booking system and to categorize the findings.
 
 **Scope:**  
-- Tested components:  
-- Exclusions:  
-- Test approach: Gray-box / Black-box / White-box
+- Tested components: Registration page, users and passwords creation.  
+- Exclusions:  All the other functions of the booking system. 
+- Test approach: Gray-box (some knowledge of the booking system)
 
 **Test environment & dates:**  
 - Start:  19.11.2025
 - End:  19.11.2025
 - Test environment details (OS, runtime, DB, browsers):
+  - OS: Windows 11 
+  - Runtime: Docker container
+  - DB: PostgreSQL
+  - Browser: Firefox 145.0.1
 
 **Assumptions & constraints:**  
-- e.g., credentials provided, limited time, etc.
-
+- The test was done in one day. 
+- Test was limited stricly only to the registration functionality.  
 ---
 
 # 2️⃣ Executive Summary
 
-**Short summary (1-2 sentences):**  
+**Short summary:**  The penetration test of the booking system discovered some critical and medium vulnerabilities, for example, the possibility of been attack by SQL injection. Some of the founded weaknesses required an immediate remediation. 
 
-**Overall risk level:** (Low / Medium / High / Critical)
+**Overall risk level:** Critical
 
 **Top 5 immediate actions:**  
 1.  
