@@ -7,7 +7,7 @@
 - The purpose of this test was to find anomalies and vulnerabilities, as many as possible, in the user registration functionality of the booking system and to categorize the findings.
 
 **Scope:**  
-- Tested components: Registration page, users and passwords creation.  
+- Tested components: Registration page, users and passwords creation. Access to the Postgres Data Base 
 - Exclusions:  All the other functions of the booking system. 
 - Test approach: Gray-box (some knowledge of the booking system)
 
@@ -21,22 +21,24 @@
   - Browser: Firefox 145.0.1
 
 **Assumptions & constraints:**  
-- The test was done in one day. 
+- The test was done in one day.
+- The automated scan was limited to 1 hour
+- The booking system was running locally (localhost:8000)
 - Test was limited stricly only to the registration functionality.  
 ---
 
 # 2️⃣ Executive Summary
 
-**Short summary:**  The penetration test of the booking system discovered some critical and medium vulnerabilities, for example, the possibility of been attack by SQL injection. Some of the founded weaknesses required an immediate remediation. 
+**Short summary:**  The penetration test of the booking system discovered some critical vulnerabilities, for example: Path Traversal and the possibility of been attack by SQL injection. THere are present also medium and low-severity misconfigurations, for example: missing headers and the lack of CSFR protection. Some of the identified weaknesses required an immediate remediation. 
 
 **Overall risk level:** Critical
 
 **Top 5 immediate actions:**  
-1.  
-2.  
-3.  
-4.  
-5.  
+1.  Assume all input is malicious and use an "accept known good" input validation strategy. 
+2.  Zero trust on client side input and in general type check all data on the server side and also avoid dynamic SQL queries using simple string concatenation. 
+3.  Use anti-CSFR packages such as the OWASP CSFRGuard and ensure that the system is free of cross-site scripting issues. 
+4.  Ensure that the system support the Content-Security-Policy has also X-Frame-Options HTTP headers.
+5.  Create and apply a strong password policy, passwords encryption is highly recomended
 
 ---
 
@@ -58,9 +60,11 @@
 
 | ID | Severity | Finding | Description | Evidence / Proof |
 |------|-----------|----------|--------------|------------------|
-| F-01 | 🔴 High | SQL Injection in registration | Input field allows `' OR '1'='1` injection | Screenshot or sqlmap result |
-| F-02 | 🟠 Medium | Session fixation | Session ID remains unchanged after login | Burp log or response headers |
-| F-03 | 🟡 Low | Weak password policy | Accepts passwords like "12345" | Screenshot of registration success |
+| F-01 | 🔴 High | Path Traversal | User input in username on /register allows file path manipulation | Alert from ZAP; see attack vectors in scan report |
+| F-02 | 🔴 High |SQL Injection | Registration input vulnerable to injection, causes errors/data leaks | ZAP alert, 500 error, boolean manipulation logs|
+| F-03 | 🟠 Medium | Absence of Anti-CSRF Tokens| No CSRF token found in form submissions| ZAP evidence: form lacks CSRF hidden input|
+| F-04 | 🟠 Medium | Content Security Policy Not Set |CSP header missing on multiple pages| Scan output: missing header in response|
+| F-05 | 🟡 Low | Weak registration and password policy | Accepts simple passwords, passwords are not encrypted and other issues like not age verification | Screenshot of registration success |
 
 ---
 
