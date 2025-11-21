@@ -60,40 +60,19 @@
 
 | ID | Severity | Finding | Description | Evidence / Proof |
 |------|-----------|----------|--------------|------------------|
-| F-01 | 🔴 High | Path Traversal | User input in username on /register allows file path manipulation | Alert from ZAP; see attack vectors in scan report |
-| F-02 | 🔴 High |SQL Injection | Registration input vulnerable to injection, causes errors/data leaks | ZAP alert, 500 error, boolean manipulation logs|
-| F-03 | 🟠 Medium | Absence of Anti-CSRF Tokens| No CSRF token found in form submissions| ZAP evidence: form lacks CSRF hidden input|
-| F-04 | 🟠 Medium | Content Security Policy Not Set |CSP header missing on multiple pages| Scan output: missing header in response|
-| F-05 | 🟡 Low | Weak registration and password policy | Accepts simple passwords, passwords are not encrypted and other issues like not age verification | Screenshot of registration success |
+| F-01 | 🔴 High | Path Traversal | User input in username on /register allows file path manipulation | Alert from ZAP; see attack vectors in scan report <br> ![Path Traversal](screenshots/path_traversal.png)|
+| F-02 | 🔴 High |SQL Injection | Registration input vulnerable to injection, causes errors/data leaks | ZAP alert, 500 error, boolean manipulation logs <br> ![SQL injection](screenshots/sql_injection.png)|
+| F-03 | 🟠 Medium | Absence of Anti-CSRF Tokens| No CSRF token found in form submissions| ZAP evidence: form lacks CSRF hidden input <br> ![Anti-CSFR absence](screenshots/absence_anticsfr_tokens.png)|
+| F-04 | 🟠 Medium | Content Security Policy Not Set |CSP header missing on multiple pages| Scan output: missing header in response, view more information on ZAP report|
+| F-05 | 🟡 Low | Weak registration and password policy | Accepts simple passwords, passwords are not encrypted and other issues like not age verification | ![Password and Age](screenshots/password_age.png) |
 
----
-
-> [!NOTE]
-> Include up to 5 findings total.   
-> Keep each description short and clear.
-
----
 
 # 5️⃣ OWASP ZAP Test Report (Attachment)
 
 **Purpose:**  
-- Attach or link your OWASP ZAP scan results (Markdown format preferred).
+- The full ZAP scan results with mores details and other minor findings is attached here with the intention of been use as reference and as help for technical remediation of the critical weaknesses. 
 
----
 
-**Instructions (CMD version):**
-1. Run OWASP ZAP baseline scan:  
-   ```bash
-   zap-baseline.py -t https://example.com -r zap_report_round1.html -J zap_report.json
-   ```
-2. Export results to markdown:  
-   ```bash
-   zap-cli report -o zap_report_round1.md -f markdown
-   ```
-3. Save the report as `zap_report_round1.md` and link it below.
-
----
-> [!NOTE]
-> 📁 **Attach full report:** → `check itslearning` → **Add a link here**
+> 📁 **Attachment:** **[ZAP full scan report](<zap report round1.md>)**
 
 ---
