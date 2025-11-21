@@ -73,6 +73,7 @@
 - The full ZAP scan results with mores details and other minor findings is attached here with the intention of been use as reference and as help for technical remediation of the critical weaknesses. 
 
 
-> 📁 **Attachment:** **[ZAP full scan report](<zap report round1.md>)**
+> 📁 **Attachment:** **[ZAP Report Round 1](../zap_report_round1.md)
+**
 
 ---
