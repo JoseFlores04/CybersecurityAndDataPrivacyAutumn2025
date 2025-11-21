@@ -29,7 +29,7 @@
 
 # 2️⃣ Executive Summary
 
-**Short summary:**  The penetration test of the booking system discovered some critical vulnerabilities, for example: Path Traversal and the possibility of been attack by SQL injection. THere are present also medium and low-severity misconfigurations, for example: missing headers and the lack of CSFR protection. Some of the identified weaknesses required an immediate remediation. 
+**Short summary:**  The penetration test of the booking system discovered some critical vulnerabilities, for example: Path Traversal and the possibility of been attack by SQL injection. There are present also medium and low-severity misconfigurations, for example: missing headers and the lack of CSFR protection. Some of the identified weaknesses required an immediate remediation. 
 
 **Overall risk level:** Critical
 
