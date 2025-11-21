@@ -18,3 +18,4 @@
 | 18.11.2025 | 1.5 | Cybersecurity and Data Privacy Course fourth lesson|  Introduction of Part2 from Phase1 |
 | 19.11.2025 | 2 | Pen-test |  Pen-test for part1, update of repository. Report no yet done |
 | 20.11.2025 | 1 | Pen-test | Working on the pen-test report, not yet complete |
+| 21.11.2025 | 2 | Pen-test | Working on the pen-test report, almost complete |
