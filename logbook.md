@@ -20,3 +20,4 @@
 | 20.11.2025 | 1 | Pen-test | Working on the pen-test report, not yet complete |
 | 21.11.2025 | 2 | Pen-test | Working on the pen-test report, almost complete |
 | 24.11.2025 | 2.5 | Pen-test and Cybersecurity and Data Privacy Course fifth lesson | Completing the pen-test report for phase1-part1, setting up the environment for phase1-part2 and logbook update |
+| 27.11.2025 | 5 | Pen-test phase1-part2| ZAP scanning, doing report "finding and fixes" for phase1-part2, logbook update |
