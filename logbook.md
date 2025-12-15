@@ -24,5 +24,5 @@
 | 28.11.2025 | 0.5 | Pen-test phase2| Researching the possibility of using Kali Linux for Phase 2 |
 | 4.12.2025 | 2 | Cybersecurity and Data Privacy Course sixth lesson| Introduction to phase 3 |
 | 11.12.2025 | 1.5 | Cybersecurity and Data Privacy Course seventh lesson| Introduction to phase 4 "GDPR" |
-| 15.12.2025 | 1 | PortSwigger Academy labs | Cross-site scripting theory reading and three labs solved |
+| 15.12.2025 | 1.5 | PortSwigger Academy labs | Cross-site scripting theory reading and three labs solved |
 
